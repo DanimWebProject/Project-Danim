@@ -13,7 +13,7 @@
 <title></title>
 </head>
 <body>
-<%@ include file="./include/header.jsp"%>
+<%@ include file="/resources/include/header.jsp"%>
 
 <div class="container-fluid p-0 d-flex justify-content-center">
 	<div id="demo" class="carousel carousel-dark slide" data-bs-ride="carousel">
@@ -73,6 +73,6 @@
 	</div>
 </div>
 
-<%@ include file="./include/footer.jsp"%>
+<%@ include file="/resources/include/footer.jsp"%>
 </body>
 </html>

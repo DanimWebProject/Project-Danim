@@ -43,7 +43,7 @@ public class MemberController {
 			logger.info("join 진입");
 			
 			// 회원가입 서비스 실행
-			memberservice.MemberJoin(member);
+			memberservice.memberJoin(member);
 			
 			logger.info("join Service 성공");
 			

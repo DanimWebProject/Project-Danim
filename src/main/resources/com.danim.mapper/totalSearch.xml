@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="totalSearch">
+  	<!-- 리뷰게시판 쿼리 -->
+  	<select id="reviewListSearch" parameterType="hashMap" resultType="hashMap">
+		<![CDATA[
+			select review_title, writer, insert_date, view_count
+			from review
+			where
+		]]>
+			<if test="searchType == 'title'">
+				<if test="do_id == null or do_id ==''">
+					review_title like CONCAT('%',#{keyword},'%')
+				</if>
+				<if test="do_id == 'do_id' and si_id == 'si_id'">
+					review_title like CONCAT('%',#{keyword},'%') and do_id = ${do_id} and si_id = ${si_id}
+				</if>
+			</if>
+			<if test="searchType == 'title' and do_id == 'do_id'">
+				<if test="si_id == null or si_id == ''">
+					review_title like CONCAT('%',#{keyword},'%') and do_id = ${do_id}
+				</if>
+			</if>
+			
+			<if test="searchType == 'writer'">
+				<if test="do_id == null or do_id ==''">
+					review_writer like CONCAT('%',#{keyword},'%')
+				</if>
+				<if test="do_id == 'do_id' and si_id == 'si_id'">
+					review_writer like CONCAT('%',#{keyword},'%') and do_id = ${do_id} and si_id = ${si_id}
+				</if>
+			</if>
+			<if test="searchType == 'writer' and do_id == 'do_id'">
+				<if test="si_id == null or si_id == ''">
+					review_writer like CONCAT('%',#{keyword},'%') and do_id = ${do_id}
+				</if>
+			</if>
+			
+			<if test="searchType == 'content'">
+				<if test="do_id == null or do_id ==''">
+					review_content like CONCAT('%',#{keyword},'%')
+				</if>
+				<if test="do_id == 'do_id' and si_id == 'si_id'">
+					review_content like CONCAT('%',#{keyword},'%') and do_id = ${do_id} and si_id = ${si_id}
+				</if>
+			</if>
+			<if test="searchType == 'content' and do_id == 'do_id'">
+				<if test="si_id == null or si_id == ''">
+					review_content like CONCAT('%',#{keyword},'%') and do_id = ${do_id}
+				</if>
+			</if>
+			
+			<if test="searchType == null or searchType == ''">
+				<if test="do_id == null or do_id == ''">
+					1 = 0
+				</if>
+				<if test="do_id == 'do_id'">
+					do_id = ${do_id}
+				</if>
+				<if test="do_id == 'do_id' and si_id == 'si_id'">
+					do_id = ${do_id} and si_id = ${si_id}
+				</if>
+			</if>
+		<![CDATA[
+			order by insert_date desc
+			limit 9, 9
+		]]>
+	</select>
+	
+	<!-- 축제게시판 쿼리 -->
+  	<select id="partyListSearch" parameterType="hashMap" resultType="hashMap">
+		<![CDATA[
+			select party_title, writer, insert_date, view_count
+			from party
+			where
+		]]>
+			<if test="searchType == 'title'">
+				<if test="do_id == null or do_id ==''">
+					party_title like CONCAT('%',#{keyword},'%')
+				</if>
+				<if test="do_id == 'do_id' and si_id == 'si_id'">
+					party_title like CONCAT('%',#{keyword},'%') and do_id = ${do_id} and si_id = ${si_id}
+				</if>
+			</if>
+			<if test="searchType == 'title' and do_id == 'do_id'">
+				<if test="si_id == null or si_id == ''">
+					party_title like CONCAT('%',#{keyword},'%') and do_id = ${do_id}
+				</if>
+			</if>
+			
+			<if test="searchType == 'writer'">
+				<if test="do_id == null or do_id ==''">
+					party_writer like CONCAT('%',#{keyword},'%')
+				</if>
+				<if test="do_id == 'do_id' and si_id == 'si_id'">
+					party_writer like CONCAT('%',#{keyword},'%') and do_id = ${do_id} and si_id = ${si_id}
+				</if>
+			</if>
+			<if test="searchType == 'writer' and do_id == 'do_id'">
+				<if test="si_id == null or si_id == ''">
+					party_writer like CONCAT('%',#{keyword},'%') and do_id = ${do_id}
+				</if>
+			</if>
+			
+			<if test="searchType == 'content'">
+				<if test="do_id == null or do_id ==''">
+					party_content like CONCAT('%',#{keyword},'%')
+				</if>
+				<if test="do_id == 'do_id' and si_id == 'si_id'">
+					party_content like CONCAT('%',#{keyword},'%') and do_id = ${do_id} and si_id = ${si_id}
+				</if>
+			</if>
+			<if test="searchType == 'content' and do_id == 'do_id'">
+				<if test="si_id == null or si_id == ''">
+					party_content like CONCAT('%',#{keyword},'%') and do_id = ${do_id}
+				</if>
+			</if>
+		<![CDATA[
+			order by insert_date desc
+			limit 9, 9
+		]]>
+	</select>
+	
+	<!-- 먹거리게시판 쿼리 -->
+  	<select id="foodListSearch" parameterType="hashMap" resultType="hashMap">
+		<![CDATA[
+			select food_title, writer, insert_date, view_count
+			from food
+			where
+		]]>
+			<if test="searchType == 'title'">
+				<if test="do_id == null or do_id ==''">
+					food_title like CONCAT('%',#{keyword},'%')
+				</if>
+				<if test="do_id == 'do_id' and si_id == 'si_id'">
+					food_title like CONCAT('%',#{keyword},'%') and do_id = ${do_id} and si_id = ${si_id}
+				</if>
+			</if>
+			<if test="searchType == 'title' and do_id == 'do_id'">
+				<if test="si_id == null or si_id == ''">
+					food_title like CONCAT('%',#{keyword},'%') and do_id = ${do_id}
+				</if>
+			</if>
+			
+			<if test="searchType == 'writer'">
+				<if test="do_id == null or do_id ==''">
+					food_writer like CONCAT('%',#{keyword},'%')
+				</if>
+				<if test="do_id == 'do_id' and si_id == 'si_id'">
+					food_writer like CONCAT('%',#{keyword},'%') and do_id = ${do_id} and si_id = ${si_id}
+				</if>
+			</if>
+			<if test="searchType == 'writer' and do_id == 'do_id'">
+				<if test="si_id == null or si_id == ''">
+					food_writer like CONCAT('%',#{keyword},'%') and do_id = ${do_id}
+				</if>
+			</if>
+			
+			<if test="searchType == 'content'">
+				<if test="do_id == null or do_id ==''">
+					food_content like CONCAT('%',#{keyword},'%')
+				</if>
+				<if test="do_id == 'do_id' and si_id == 'si_id'">
+					food_content like CONCAT('%',#{keyword},'%') and do_id = ${do_id} and si_id = ${si_id}
+				</if>
+			</if>
+			<if test="searchType == 'content' and do_id == 'do_id'">
+				<if test="si_id == null or si_id == ''">
+					food_content like CONCAT('%',#{keyword},'%') and do_id = ${do_id}
+				</if>
+			</if>
+		<![CDATA[
+			order by insert_date desc
+			limit 9, 9
+		]]>
+	</select>
+  </mapper>

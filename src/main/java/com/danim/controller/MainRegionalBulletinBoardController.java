@@ -1,16 +1,16 @@
-package com.danim.controller;
-
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-
-@Controller
-public class MainRegionalBulletinBoardController {
-	@RequestMapping(value = "/RegionalBulletinBoardMapping", method = RequestMethod.GET)
-	public String handleImageClick() {
-		// ¿©±â¿¡¼­ ÇÊ¿äÇÑ ·ÎÁ÷À» Ã³¸®ÇÏ¸é µË´Ï´Ù.
-
-		// ÀÌµ¿ÇÒ ÆäÀÌÁöÀÇ ºä ÀÌ¸§À» ¹ÝÈ¯ÇÕ´Ï´Ù.
-		return "yourViewName";
-	}
-}
+//package com.danim.controller;
+//
+//import org.springframework.stereotype.Controller;
+//import org.springframework.web.bind.annotation.RequestMapping;
+//import org.springframework.web.bind.annotation.RequestMethod;
+//
+//@Controller
+//public class MainRegionalBulletinBoardController {
+//	@RequestMapping(value = "/RegionalBulletinBoardMapping", method = RequestMethod.GET)
+//	public String handleImageClick() {
+//		// ï¿½ï¿½ï¿½â¿¡ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½Ë´Ï´ï¿½.
+//
+//		// ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½Õ´Ï´ï¿½.
+//		return "yourViewName";
+//	}
+//}
