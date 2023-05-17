@@ -19,51 +19,51 @@ public class MemberController {
 	@Autowired
 	private MemberService memberservice;
 	
-	//로그인 페이지 이동
+	//濡쒓렇�씤 �럹�씠吏� �씠�룞
 	@RequestMapping(value = "login", method = RequestMethod.GET)
 	public void loginGET() {
 		
-		logger.info("로그인 페이지 진입");
+		logger.info("濡쒓렇�씤 �럹�씠吏� 吏꾩엯");
 		
 		
 	}
 	
-	//회원가입 페이지 이동
+	//�쉶�썝媛��엯 �럹�씠吏� �씠�룞
 	@RequestMapping(value = "join", method = RequestMethod.GET)
 	public void joinGET() {
 		
-		logger.info("회원가입 페이지 진입");
+		logger.info("�쉶�썝媛��엯 �럹�씠吏� 吏꾩엯");
 		
 	}
 	
-	//회원가입
+	//�쉶�썝媛��엯
 		@RequestMapping(value="/join", method=RequestMethod.POST)
 		public String joinPOST(MemberVO member) throws Exception{
 			
-			logger.info("join 진입");
+			logger.info("join 吏꾩엯");
 			
-			// 회원가입 서비스 실행
-			memberservice.MemberJoin(member);
+			// �쉶�썝媛��엯 �꽌鍮꾩뒪 �떎�뻾
+			memberservice.memberJoin(member);
 			
-			logger.info("join Service 성공");
+			logger.info("join Service �꽦怨�");
 			
 			return "redirect:/login";
 			
 		}
 	
-	//비밀번호 변경 페이지 이동
+	//鍮꾨�踰덊샇 蹂�寃� �럹�씠吏� �씠�룞
 	@RequestMapping(value = "change_pw", method = RequestMethod.GET)
 	public void change_pwGET() {
 		
-		logger.info("비밀번호 변경 페이지 진입");
+		logger.info("鍮꾨�踰덊샇 蹂�寃� �럹�씠吏� 吏꾩엯");
 		
 	}
 	
-	//비밀번호 찾기 페이지 이동
+	//鍮꾨�踰덊샇 李얘린 �럹�씠吏� �씠�룞
 	@RequestMapping(value = "find_pw", method = RequestMethod.GET)
 	public void find_pwGET() {
 		
-		logger.info("비밀번호 찾기 페이지 진입");
+		logger.info("鍮꾨�踰덊샇 李얘린 �럹�씠吏� 吏꾩엯");
 		
 	}
 	

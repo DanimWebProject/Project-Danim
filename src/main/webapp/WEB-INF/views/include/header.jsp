@@ -22,7 +22,7 @@
           <a class="nav-link" href="/">메인</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/review/review_list">리뷰게시판</a>
+          <a class="nav-link" href="/board/review_list">리뷰게시판</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">축제게시판</a>

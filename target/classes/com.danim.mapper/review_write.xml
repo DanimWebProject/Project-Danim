@@ -4,8 +4,8 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="review"> <!-- review라는 이름의 namespace로 mapper간의 유일성을 보장한다  -->
- <insert id="insert" parameterType="hashmap">
-        <![CDATA[
+
+ <insert id="insert" parameterType="reviewVo">
             INSERT INTO review
             (	
                 review_title,
@@ -22,8 +22,9 @@
                 #{review_content},
                  #{review_filename},
                 #{writer},
-                SYSDATE()               
-            )
-        ]]>
+                #{do_id},
+                #{si_id},
+                1)
     </insert>
+    
 </mapper>

@@ -11,20 +11,29 @@ import com.danim.model.ReviewListVO;
 import com.danim.service.ReviewService;
 
 @Controller
+@RequestMapping(value="/board/*")
 public class ReviewWriteController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(ReviewWriteController.class);
 	
-	@Autowired(required=false)
+	@Autowired
 	private ReviewService reviewService;
 	
+	@RequestMapping(value="/list.do")
+	public String list(Model model) {
+		logger.info("ë¦¬ìŠ¤íŠ¸ í˜ì´ì§€ ì§„ì…");
+	
+		model.addAttribute("list",reviewService.selectList());
+		return "board/review_list";
+		
+	}
 	
 	
 	@RequestMapping(value = "/insert.do")
 	public String insert() {
-		logger.info("insert ÆäÀÌÁö ÁøÀÔ");
+		logger.info("insert í˜ì´ì§€ ì§„ì…");
 		
-		return "review/review_write";
+		return "board/review_write";
 	}
 	
 	@RequestMapping("/reinsert.do")
@@ -34,12 +43,27 @@ public class ReviewWriteController {
 		
 		int res = reviewService.insert(vo);
 		
-		if(res<0) {
-			return "redirect:list.do";
+		if(res>0) {
+			return "redirect:review_list";
 		}else{
-			return "redirect:insert.do";
+			return "redirect:review_write";
 		}
 	}
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

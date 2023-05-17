@@ -5,6 +5,6 @@
   <mapper namespace="com.danim.mapper.MemberMapper">
 	<insert id="memberJoin">
   		insert into users(user_pass, user_name, user_gender, user_birth, user_nickname, user_email, user_do, user_si, user_addr) values(#{user_pass}, #{user_name}, #{user_gender}, #{user_birth}, #{user_nickname}, #{user_email}, #{user_do}, #{user_si}, #{user_addr})
-    
+
   	</insert>
   </mapper>

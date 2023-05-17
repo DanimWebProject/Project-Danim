@@ -25,7 +25,12 @@
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="datasource"></property>
         <property name="mapperLocations" value="classpath*:/com.danim.mapper/**/*.xml"></property>
+        <property name="configLocation" value="WEB-INF/spring/db/config.xml"></property><!-- 이종민 -->
     </bean>
+    
+    <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate"><!-- 이종민 -->
+		<constructor-arg ref="sqlSessionFactory"></constructor-arg><!-- 이종민 -->
+	</bean>
     
     <mybatis-spring:scan base-package="com.danim.mapper"/>
     <context:component-scan base-package="com.danim.model"></context:component-scan>

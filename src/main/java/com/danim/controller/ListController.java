@@ -16,7 +16,7 @@ import com.danim.service.PagingService;
 import com.danim.service.ReviewListService;
 
 @Controller
-@RequestMapping(value="/review/*")
+@RequestMapping(value="/board/*")
 public class ListController {
 	
 	@Autowired
@@ -24,7 +24,7 @@ public class ListController {
 	
 	private static final Logger log = LoggerFactory.getLogger(ListController.class);
 	
-	/* °Ô½ÃÆÇ ¸ñ·Ï ÆäÀÌÁö Á¢¼Ó */
+	/* ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
     @GetMapping("/review_list")
     // => @RequestMapping(value="list", method=RequestMethod.GET)
     public void reviewListGET(Model model, @RequestParam(defaultValue="1") int currentPage) {
@@ -38,7 +38,7 @@ public class ListController {
     	
     	List<ReviewListVO> list = this.reviewListService.select_list(criNum);
     	log.info("list.size() : " + list.size());
-        log.info("°Ô½ÃÆÇ ¸ñ·Ï ÆäÀÌÁö ÁøÀÔ");
+        log.info("ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
         
         int total = this.reviewListService.review_page();
         
@@ -50,20 +50,5 @@ public class ListController {
         model.addAttribute("total", total);
     }
     
-    //ÆäÀÌÂ¡
-//    @GetMapping("/review_list")
-//    // => @RequestMapping(value="list", method=RequestMethod.GET)
-//    public String pageGET(Model model, @RequestParam(defaultValue="1") int currentPage) {
-//    	List<ReviewListVO> list = this.reviewListService.select_list();
-//		log.info("list.size() : " + list.size());
-//		// »óÇ° ºÐ·ùº° °Å·¡Ã³ ¸ñ·Ï ÇàÀÇ ¼ö
-//		int total = Integer.parseInt(this.reviewListService.review_page());
-//		log.info("total : " + total);
-//		
-//		model.addAttribute("list", new PagingService(total, currentPage, 9, 5, list));
-//		
-//		model.addAttribute("total", total);
-//		
-//		return "/review_list";
-//    }
 }
+

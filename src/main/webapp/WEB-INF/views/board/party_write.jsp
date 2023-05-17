@@ -13,6 +13,7 @@
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
 <link href="${pageContext.request.contextPath}/resources/css/review_write.css" rel="stylesheet" type="text/css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
@@ -22,7 +23,7 @@
 <div class="col-md-8">
 
 <h2>Review</h2>
-	<form method="post" action="reinsert.do"> <!-- 컨트롤러로 감 -->
+	<form method="post" action="painsert.do"> <!-- 컨트롤러로 감 -->
 		<div class="review_write_bg p-5">
 			<div class="input-group">
 				<label for="review_title" class="p-3">제목</label>
@@ -36,11 +37,15 @@
 			</div>
 
             <div class="input-group">
-                
+                	
+                	<label for="file">이미지 첨부:</label>
+				    <input type="file" name="review_filename" class="form-control" value="파일선택">
+				    
 				    <label for="file">이미지 첨부:</label>
 				    <input type="file" name="review_filename" class="form-control" value="파일선택">
-                
-                
+            </div>
+            
+            <div class="input-group">    
                     <label for="do_id" class="form-control d-flex">지역선택 :
                         <select name="do_id">
                             <option value="시/도">시/도 선택 </option>
@@ -48,16 +53,18 @@
                             <option value="1">서울 </option>
                             <option value="강원도">강원도 </option>
                         </select>  
+                        
                          <select name="si_id">
                             <option value="시/도">시/군/구 선택 </option>
                             <option value="11">노원구 </option>
                             <option value="시/도">서울 </option>
                             <option value="시/도">강원도 </option>
                         </select>  
-                        
+                 	 </label>
+                  </div>      
                        
-                    </label>
-			</div>
+                   
+			
             <textarea class="form-control mt-3" rows="28" name="review_content"></textarea>
             
             <div class="d-flex justify-content-between mt-3">
@@ -68,8 +75,8 @@
                 </div>
             </div>
         </div>
-        <button type="button" class="btn list_button mt-2" onclick="location.href='list.do'">목록</button> <!-- 목록으로 이동 -->
-	</form>
+        <button type="button" class="btn list_button mt-2" onclick="location.href='#'">목록</button> <!-- 목록으로 이동 -->
+	</form>																		<!-- party_list -->
 </div>
 <div class="col-md-2"></div>
 

@@ -5,15 +5,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/review_list.css"/>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>insertForm</title>
+   <meta charset="UTF-8">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+   <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/review_list.css"/>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>리뷰 게시판</title>
 </head>
 <body>
     <div class="container">
@@ -28,8 +28,8 @@
     <div class="container">
         <div class="row bg-gray p-3">
             <legend class="title p-2">베스트 리뷰</legend>
-			
-			<c:forEach items="${best_review}" var="best_review">
+         
+         <c:forEach items="${best_review}" var="best_review">
             <div class="col-md-3">
                 <div class="card">
                     <img src="https://cdn.pixabay.com/photo/2023/04/28/07/07/cat-7956026_960_720.jpg" class="card-img-top" alt="...">
@@ -56,7 +56,7 @@
                             </p>
                         </div>
                         <div class="d-flex justify-content-end">
-                            <a href="#" class="btn btn-primary">더 보기</a>
+                            <a href="one.do?review_num=${vo.review_num}" class="btn btn-primary">더 보기</a>
                         </div>
                     </div>
                 </div>
@@ -70,8 +70,8 @@
     <div class="d-none">
     <c:set var="card" value="0"></c:set>
     <c:set var="row" value="0"></c:set>
-	<c:if test="${card % 3 == 0}" >
-    	${row += 1}
+   <c:if test="${card % 3 == 0}" >
+       ${row += 1}
     </c:if>
     </div>
     
@@ -84,16 +84,19 @@
                     지역선택
                 </label>
                 
-               	<select id="do_id" name="do_id" class="custom-select form-select-sm" aria-label=".form-select-sm example">
-               		<option value="">시 / 도</option>
-					<c:forEach items="${select_do}" var="select_do">
-						<option value="${select_do.do_id}">${select_do.do_name}</option>
-					</c:forEach>
-				</select>
-				
-				<select id="si_id" name="si_id" class="custom-select form-select-sm" aria-label=".form-select-sm example">
-					<option value="">시 / 군 / 구</option>
-				</select>
+                  <select id="do_id" name="do_id" class="custom-select form-select-sm" aria-label=".form-select-sm example">
+                     <option value="">시 / 도</option>
+               <c:forEach items="${select_do}" var="select_do">
+                  <option value="${select_do.do_id}">${select_do.do_name}</option>
+               </c:forEach>
+            </select>
+            
+            <select id="si_id" name="si_id" class="custom-select form-select-sm" aria-label=".form-select-sm example">
+               <option value="">시 / 군 / 구</option>
+               <c:forEach items="" var="select_do">
+                  <option value=""></option>
+               </c:forEach>
+            </select>
             </div>
             <div class="col-md-8">
                 <div class="input-group">
@@ -109,7 +112,7 @@
     </form>
     <c:forEach var="i" begin="0" end="${row}">
         <div class="row d-flex justify-content-start">
-			<c:forEach items="${review_list}" var="review_list">
+         <c:forEach items="${review_list}" var="review_list">
             <div class="col-md-4 my-3">
                 <div class="card">
                     <img src="https://cdn.pixabay.com/photo/2023/04/28/07/07/cat-7956026_960_720.jpg" class="card-img-top" alt="...">
@@ -143,41 +146,41 @@
                 </div>
             </div>
             </c:forEach>
-	    </div>
-	    <div class="d-none">
-	    ${card += 1}
-	    </div>
-	    </c:forEach>
-	        <!-- 글작성 불러오기 -->
-	        <div class="row my-5">
-	            <div class="col-md-1"></div>
-	            <div class="col-md-10">
-	                <form action="" class="d-flex justify-content-end">
-	                    <input type="submit" class="btn btn-secondary" value="글작성">
-	                </form>
-	            </div>
-	            <div class="col-md-1"></div>
-	        </div>
-	        
-	       	<!-- 페이징 -->
-			<div class="d-flex justify-content-center">
-				<div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
-					<ul class="pagination">
-						<!-- Start -->
-							<li class="paginate_button page-item previous <c:if test='${list.startPage<6 }'>disabled</c:if>" id="dataTable_previous"><a href="/review/review_list?currentPage=${list.startPage-5 }" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page-link">&laquo;</a></li>
-						<!-- Previous -->
-							<li class="paginate_button page-item previous <c:if test='${param.currentPage == list.startPage }'>disabled</c:if>" id="dataTable_previous"><a href="/review/review_list?currentPage=${param.currentPage - 1 }" aria-controls="dataTable" data-dt-idx="1" tabindex="0" class="page-link">&lsaquo;</a></li>
-						<!-- Page번호 -->
-							<c:forEach var="pNo" begin="${list.startPage }" end="${list.endPage }" step="1">
-							<li class="paginate_button page-item  <c:if test='${param.currentPage eq pNo }'>active</c:if>"><a href="/review/review_list?currentPage=${pNo }" aria-controls="dataTable" data-dt-idx="2" tabindex="0" class="page-link">${pNo }</a></li>
-							</c:forEach>
-						<!-- Next -->
-							<li class="paginate_button page-item previous <c:if test='${param.currentPage == list.endPage }'>disabled</c:if>" id="dataTable_previous"><a href="/review/review_list?currentPage=${param.currentPage + 1 }" aria-controls="dataTable" data-dt-idx="8" tabindex="0" class="page-link">&rsaquo;</a></li>
-						<!-- End -->
-							<li class="paginate_button page-item next <c:if test='${list.endPage>=list.totalPages }'>disabled</c:if>" id="dataTable_next"><a href="/review/review_list?currentPage=${list.startPage+5 }" aria-controls="dataTable" data-dt-idx="9" tabindex="0" class="page-link">&raquo;</a></li>
-					</ul>
-				</div>
-			</div>
+       </div>
+       <div class="d-none">
+       ${card += 1}
+       </div>
+       </c:forEach>
+           <!-- 글작성 불러오기 -->
+           <div class="row my-5">
+               <div class="col-md-1"></div>
+               <div class="col-md-10">
+                   <form action="insert.do" class="d-flex justify-content-end">
+                       <input type="submit" class="btn btn-secondary" value="글작성">
+                   </form>
+               </div>
+               <div class="col-md-1"></div>
+           </div>
+           
+             <!-- 페이징 -->
+       <div class="d-flex justify-content-center">
+            <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
+               <ul class="pagination">
+                  <!-- Start -->
+                    <!--  <li class="paginate_button page-item start <c:if test='${list.startPage < 6 }'>disabled</c:if>" id="dataTable_start"><a href="/review/review_list?currentPage=${list.startPage - 5 }" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page-link">&laquo;</a></li>
+                  <!-- Previous -->
+                     <li class="paginate_button page-item prev <c:if test='${param.currentPage == list.startPage }'>disabled</c:if>" id="dataTable_previous"><a href="/review/review_list?currentPage=${param.currentPage - 1 }" aria-controls="dataTable" data-dt-idx="1" tabindex="0" class="page-link">&lsaquo;</a></li>
+                  <!-- Page번호 -->
+                     <c:forEach var="pNo" begin="${list.startPage }" end="${list.endPage }" step="1">
+                     <li class="paginate_button page-item  <c:if test='${param.currentPage eq pNo }'>active</c:if>"><a href="/review/review_list?currentPage=${pNo }" aria-controls="dataTable" data-dt-idx="2" tabindex="0" class="page-link">${pNo }</a></li>
+                     </c:forEach>
+                  <!-- Next -->
+                     <li class="paginate_button page-item next <c:if test='${param.currentPage == list.endPage }'>disabled</c:if>" id="dataTable_next"><a href="/review/review_list?currentPage=${param.currentPage + 1 }" aria-controls="dataTable" data-dt-idx="8" tabindex="0" class="page-link">&rsaquo;</a></li>
+                  <!-- End -->
+                     <li class="paginate_button page-item end <c:if test='${list.endPage>=list.totalPages }'>disabled</c:if>" id="dataTable_end"><a href="/review/review_list?currentPage=${list.startPage+5 }" aria-controls="dataTable" data-dt-idx="9" tabindex="0" class="page-link">&raquo;</a></li>
+               </ul>
+            </div>
+         </div> 
     </div>
     
 
